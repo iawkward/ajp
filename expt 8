@@ -1,4 +1,6 @@
 Databasecreation.java
+
+
 package DB;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,7 +26,12 @@ e.printStackTrace();
 }
 }
 }
+
+
+
 Tablecreation.java
+
+
 package DB;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -52,7 +59,12 @@ System.out.println("Created table in given database...");
 } catch (SQLException e) {
 e.printStackTrace();
 } }}
+
+
+
 Insertingdata.java
+
+
 package DB;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -84,7 +96,12 @@ System.out.println("Inserted records into the table...");
 } catch (SQLException e) {
 e.printStackTrace();
 } }}
+
+
+
 Displaydata.java
+
+
 package DB;
 import java.sql.Connection;
 import java.sql.DriverManager;
