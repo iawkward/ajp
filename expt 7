@@ -1,7 +1,6 @@
-
-EXPERIMENT 7: -
-Program: -
 input.html
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +17,12 @@ Enter your name: <input type="text" name=t1>
 </form>
 </body>
 </html>
+
+
+
 DemoServlet.java
+
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -62,4 +66,3 @@ throws ServletException, IOException {
 doGet(request, response);
 }
 }
-
