@@ -1,4 +1,3 @@
-EXPT 2
 import java.awt.*;
 import java.awt.event.*;
 public class Framedemo extends Frame implements MouseListener
