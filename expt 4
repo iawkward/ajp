@@ -1,37 +1,40 @@
+DBconnect.java
+
+
+
+package dbconnect;
 import java.sql.*;
-public class Connectdb{
-static final String DB_URL = "jdbc:mysql://localhost:3306/vikash";
-static final String USER = "root";
-static final String PASS = "root";
-public static void main(String[] args)
+public class DBconnect {
+public static void main(String[] args) {
+try {
+Class.forName("com.mysql.jdbc.Driver");
+Connection con = DriverManager.getConnection("jdbc:mysql://localhost/java", "root",
+"MySQL");
+Statement s = con.createStatement();
+//s.execute("create table student ( stud_id integer,stud_name varchar(20),stud_address
+varchar(30) )"); // create a table
+s.execute("insert into student values(001,'Arman','Delhi')"); // insert first row into the
+table
+s.execute("insert into student values(002,'Robert','Canada')"); // insert second row into the
+table
+s.execute("insert into student values(003,'Ahuja','Karnal')"); // insert third row into the
+table
+ResultSet rs = s.executeQuery("select * from student");
+if (rs != null) // if rs == null, then there is no record in ResultSet to show
+while (rs.next()) // By this line we will step through our data row-by-row
 {
-// Open a connection
-System.out.println("Database Connection Program...");
-try
-{
-Class.forName("com.mysql.cj.jdbc.Driver");
-Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-System.out.println("Database Connected Successfully...");
-Statement stmt = conn.createStatement();
-System.out.println("Inserting records into the table...");
-String sql = "INSERT INTO Student2 VALUES (25, 'Ravi')";
-stmt.executeUpdate(sql);
-System.out.println("Inserted records into the table...");
-String query = "SELECT * FROM Student2 ";
-Statement st = conn.createStatement();
-ResultSet rs = st.executeQuery(query);
-while (rs.next())
-{
-int id = rs.getInt(1);
-String Name = rs.getString(2);
-System.out.format("%s, %s\n", id, Name);
+System.out.println("________________________________________");
+System.out.println("Id of the student: " + rs.getString(1));
+System.out.println("Name of student: " + rs.getString(2));
+System.out.println("Address of student: " + rs.getString(3));
+System.out.println("________________________________________");
 }
-st.close();
-}
-catch (Exception e)
-{
-System.err.println("Got an exception! ");
-System.err.println(e.getMessage());
+s.close(); // close the Statement to let the database know we're done with it
+con.close(); // close the Connection to let the database know we're done with it
+} catch (SQLException err) {
+System.out.println("ERROR: " + err);
+} catch (Exception err) {
+System.out.println("ERROR: " + err);
 }
 }
 }
